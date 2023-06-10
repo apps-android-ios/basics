@@ -1,14 +1,14 @@
 import { View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
 
-import ProductList from "./src/screens/product-list";
-import Cards from "./src/screens/cards";
+// import ProductList from "./src/screens/product-list";
+// import Cards from "./src/screens/cards";
+import Contact from "./src/screens/contact";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <ProductList />
-        <Cards />
+        <Contact />
       </View>
     </SafeAreaView>
   );
@@ -17,6 +17,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0,
   },
 });

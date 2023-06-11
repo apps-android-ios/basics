@@ -5,13 +5,15 @@ import {
   View,
   TextInput,
 } from "react-native";
-import { useState, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import Checkbox from "expo-checkbox";
 
 let initialState = false;
 
-export default Contact = () => {
+export default Contact = ({ navigation }) => {
   const [agree, setAgree] = useState(initialState);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleCheckBox = useCallback(() => {
     setAgree(!agree);
@@ -27,6 +29,8 @@ export default Contact = () => {
           style={styles.input}
           autoCapitalize="none"
           autoCorrect={false}
+          value={userName}
+          onChangeText={setUserName}
         />
         <Text style={styles.label}>Enter your password</Text>
         <TextInput
@@ -34,6 +38,8 @@ export default Contact = () => {
           autoCapitalize="none"
           autoCorrect={false}
           secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
         />
         <View style={styles.wrapper}>
           <Checkbox
@@ -53,6 +59,7 @@ export default Contact = () => {
             },
           ]}
           disabled={!agree}
+          onPress={() => navigation.navigate("Home")}
         >
           <Text style={styles.textButton}>Login</Text>
         </TouchableOpacity>
